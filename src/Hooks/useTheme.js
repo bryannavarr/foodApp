@@ -9,7 +9,7 @@ import {
   Layout,
   themes,
   DefaultVariables,
-} from '@/Theme'
+} from '../Theme'
 
 export default function () {
   // Get the scheme device

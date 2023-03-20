@@ -9,10 +9,9 @@ import {
 } from 'react-native'
 import { useDispatch } from 'react-redux'
 import { useTranslation } from 'react-i18next'
-import { Brand } from '@/Components'
-import { useTheme } from '@/Hooks'
-import { useLazyFetchOneQuery } from '@/Services/modules/users'
-import { changeTheme } from '@/Store/Theme'
+import { Brand } from '../Components'
+import { useTheme } from '../Hooks'
+import { changeTheme } from '../Store/Theme'
 
 const ExampleContainer = () => {
   const { t } = useTranslation()
@@ -20,12 +19,6 @@ const ExampleContainer = () => {
   const dispatch = useDispatch()
 
   const [userId, setUserId] = useState('9')
-  const [fetchOne, { data, isSuccess, isLoading, isFetching, error }] =
-    useLazyFetchOneQuery()
-
-  useEffect(() => {
-    fetchOne(userId)
-  }, [fetchOne, userId])
 
   const onChangeTheme = ({ theme, darkMode }) => {
     dispatch(changeTheme({ theme, darkMode }))
@@ -42,14 +35,8 @@ const ExampleContainer = () => {
     >
       <View style={[[Layout.colCenter, Gutters.smallHPadding]]}>
         <Brand />
-        {(isLoading || isFetching) && <ActivityIndicator />}
-        {!isSuccess ? (
-          <Text style={Fonts.textRegular}>{error}</Text>
-        ) : (
-          <Text style={Fonts.textRegular}>
-            {t('example.helloUser', { name: data?.name })}
-          </Text>
-        )}
+
+        <Text style={Fonts.textRegular}>{t('example.helloUser')}</Text>
       </View>
       <View
         style={[
@@ -65,7 +52,6 @@ const ExampleContainer = () => {
         </Text>
         <TextInput
           onChangeText={setUserId}
-          editable={!isLoading}
           keyboardType={'number-pad'}
           maxLength={1}
           value={userId}

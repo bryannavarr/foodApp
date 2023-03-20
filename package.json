@@ -29,7 +29,8 @@
     "react-native-screens": "^3.15.0",
     "react-redux": "^8.0.2",
     "redux-flipper": "^2.0.2",
-    "redux-persist": "^6.0.0"
+    "redux-persist": "^6.0.0",
+    "twrnc": "^3.6.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
@@ -37,6 +38,7 @@
     "@react-native-community/eslint-config": "^3.0.1",
     "babel-jest": "^26.6.3",
     "babel-plugin-module-resolver": "^4.0.0",
+    "concurrently": "^7.6.0",
     "eslint": "^7.32.0",
     "eslint-import-resolver-babel-module": "^5.1.2",
     "eslint-plugin-import": "^2.22.0",
@@ -44,6 +46,7 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.6.3",
     "metro-react-native-babel-preset": "^0.70.3",
+    "postcss": "^8.4.21",
     "prettier": "^2.7.1",
     "react-test-renderer": "18.0.0"
   },

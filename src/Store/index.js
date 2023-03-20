@@ -12,12 +12,10 @@ import {
   REGISTER,
 } from 'redux-persist'
 
-import { api } from '@/Services/api'
 import theme from './Theme'
 
 const reducers = combineReducers({
   theme,
-  api: api.reducer,
 })
 
 const persistConfig = {
@@ -35,7 +33,7 @@ const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }).concat(api.middleware)
+    })
 
     if (__DEV__ && !process.env.JEST_WORKER_ID) {
       const createDebugger = require('redux-flipper').default
