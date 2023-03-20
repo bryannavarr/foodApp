@@ -6,6 +6,8 @@ import {
   TextInput,
   TouchableOpacity,
   ScrollView,
+  Button,
+  StyleSheet,
 } from 'react-native'
 import { useDispatch } from 'react-redux'
 import { useTranslation } from 'react-i18next'
@@ -25,22 +27,18 @@ const Menu = () => {
     dispatch(changeTheme({ theme, darkMode }))
   }
 
+  const styles = StyleSheet.create({
+    button: tw`bg-blue-500 text-white`,
+  })
+
   return (
     <ScrollView
-      style={Layout.fill}
       contentContainerStyle={[
         Layout.fill,
         Layout.colCenter,
         Gutters.smallHPadding,
       ]}
     >
-      <View style={[[Layout.colCenter, Gutters.smallHPadding]]}>
-        <Brand />
-
-        <Text style={Fonts.textRegular}>
-          {t('example.helloUser')}
-        </Text>
-      </View>
       <View
         style={[
           Layout.row,
@@ -51,39 +49,15 @@ const Menu = () => {
         ]}
         className="flex-1 items-center justify-center bg-white"
       >
-        <Text className='font-bold text-xl p-8' style={tw`font-bold text-xl p-10`}>This is the menu page.</Text>
-        <TextInput
-          className="rounded-lg"
-          onChangeText={setUserId}
-          keyboardType={'number-pad'}
-          maxLength={1}
-          value={userId}
-          selectTextOnFocus
-          style={[Layout.fill, Common.textInput]}
-        />
+        <Text style={tw`font-bold text-xl p-10 text-white`}>
+          This is the menu page.
+        </Text>
+        <TouchableOpacity
+          style={tw`bg-indigo-500 font-bold rounded-full py-4 px-8 shadow-lg uppercase text-white`}
+        >
+          <Text style={tw`text-white`}>Add To Cart</Text>
+        </TouchableOpacity>
       </View>
-      <Text style={[Fonts.textRegular, Gutters.smallBMargin]}>DarkMode :</Text>
-
-      <TouchableOpacity
-        style={[Common.button.rounded, Gutters.regularBMargin]}
-        onPress={() => onChangeTheme({ darkMode: null })}
-      >
-        <Text style={Fonts.textRegular}>Auto</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity
-        style={[Common.button.outlineRounded, Gutters.regularBMargin]}
-        onPress={() => onChangeTheme({ darkMode: true })}
-      >
-        <Text style={Fonts.textRegular}>Dark</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity
-        style={[Common.button.outline, Gutters.regularBMargin]}
-        onPress={() => onChangeTheme({ darkMode: false })}
-      >
-        <Text style={Fonts.textRegular}>Light</Text>
-      </TouchableOpacity>
     </ScrollView>
   )
 }
