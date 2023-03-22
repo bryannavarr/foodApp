@@ -27,3 +27,10 @@ Template Repository:
 
 https://github.com/thecodingmachine/react-native-boilerplate
 
+
+#Installing Packages
+
+If node module is installed and react-native can't find it run:
+
+cd ios && pod install
+

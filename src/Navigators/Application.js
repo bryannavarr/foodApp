@@ -6,6 +6,7 @@ import { StartupContainer } from '../Containers'
 import { useTheme } from '../Hooks'
 import MainNavigator from './Main'
 import { navigationRef } from './utils'
+import { SparklesIcon } from "react-native-heroicons/solid";
 
 const Stack = createStackNavigator()
 
